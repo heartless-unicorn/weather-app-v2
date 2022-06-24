@@ -22,13 +22,18 @@
   <body>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <div class="container border border-2 border-secondary">
-      <div class="input-group city-search mt-2">
-        <input type="text" class="form-control" placeholder="Enter city" />
+      <form class="input-group city-search mt-2" id="search-city">
+        <input
+          type="search"
+          class="form-control"
+          placeholder="Enter city"
+          id="city-search"
+        />
         <button class="btn btn-outline-secondary ok-button" type="submit">
           Ok
         </button>
         <button class="btn" type="button" id="current">Current</button>
-      </div>
+      </form>
       <div class="row">
         <div class="col-3">
           <ul class="place">
@@ -49,12 +54,22 @@
           <ul>
             <li id="humidity"><i>Humidity: 1%</i></li>
             <li id="description">Clear</li>
+            <li id="wind"></li>
             <li>
               <q>Nice weather</q>
             </li>
           </ul>
         </div>
       </div>
+    </div>
+    <div class="link">
+      <a
+        class="git-link"
+        href="https://github.com/heartless-unicorn/weather-app-v2"
+        target="_blank"
+        >Open-source</a
+      >
+      codded by Maria Pavlova
     </div>
     <script src="src/script.js"></script>
   </body>

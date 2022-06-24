@@ -37,3 +37,12 @@ b {
   padding-top: 8px;
   padding-right: 30px;
 }
+.link {
+  text-align: right;
+}
+.git-link {
+  color: hotpink;
+}
+.git-link:hover {
+  color: lightpink;
+}
