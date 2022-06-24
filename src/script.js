@@ -19,7 +19,7 @@ function currentCityWeather(responce) {
   weather.innerHTML = `${currentTemp}`;
   let currentHumidity = responce.data.main.humidity;
   let humidity = document.querySelector("#humidity");
-  humidity.innerHTML = `${currentHumidity}%`;
+  humidity.innerHTML = `Humidity: ${currentHumidity}%`;
   let currentDescription = responce.data.weather[0].main;
   let description = document.querySelector("#description");
   description.innerHTML = `<b>${currentDescription}<b>`;
@@ -29,14 +29,16 @@ function currentCityWeather(responce) {
     "src",
     `http://openweathermap.org/img/wn/${currentIcon}.png`
   );
-  let wind = responce.data;
+  let currentWind = responce.data.wind.speed;
+  let wind = document.querySelector("#wind");
+  wind.innerHTML = `Wind: ${currentWind} km/h`;
   //current Country function
   function currentCountry(responce) {
     let fullCountryName = responce.data[0].name.common;
     let countryName = document.querySelector("#country");
     countryName.innerHTML = `${fullCountryName}`;
   }
-
+  let country = responce.data.sys.country;
   let countryURL = `https://restcountries.com/v3.1/alpha/${country}`;
   axios.get(countryURL).then(currentCountry);
 }
