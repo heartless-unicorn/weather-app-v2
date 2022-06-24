@@ -1,0 +1,39 @@
+body {
+  max-width: 600px;
+  font-family: "Dosis", sans-serif;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 5px;
+}
+b {
+  color: #50717b;
+}
+.place {
+  padding-top: 10px;
+  padding-left: 25px;
+}
+.city {
+  font-size: 20px;
+  color: #50717b;
+}
+.temp {
+  font-size: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.metric {
+  font-size: small;
+  font-weight: 700;
+  color: black;
+}
+.degrees {
+  padding-left: 70px;
+  color: #50717b;
+}
+.weather-icon {
+  padding-top: 8px;
+  padding-right: 30px;
+}
