@@ -27,30 +27,28 @@
         <button class="btn btn-outline-secondary ok-button" type="submit">
           Ok
         </button>
-        <button class="btn" type="button">Current</button>
+        <button class="btn" type="button" id="current">Current</button>
       </div>
       <div class="row">
         <div class="col-3">
           <ul class="place">
             <li class="city" id="city">City name</li>
-            <li class="country">Country</li>
+            <li class="country" id="country">Country</li>
             <li class="time" id="time">Date</li>
           </ul>
         </div>
         <div class="col-6 temp">
           <p class="degrees">
-            1 <span class="metric">°C |</span><span class="metric">°F</span>
+            <span id="current-temp">1</span> <span class="metric">°C |</span
+            ><span class="metric">°F</span>
           </p>
-          <img
-            src="img/sunny_FILL0_wght400_GRAD0_opsz48.png"
-            class="weather-icon"
-          />
+          <img src="" class="weather-icon" id="icon" />
         </div>
 
         <div class="col-3">
           <ul>
-            <li><i>Humidity: 1%</i></li>
-            <li><b>Clear</b></li>
+            <li id="humidity"><i>Humidity: 1%</i></li>
+            <li id="description">Clear</li>
             <li>
               <q>Nice weather</q>
             </li>
