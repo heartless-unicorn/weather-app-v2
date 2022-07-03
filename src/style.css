@@ -28,6 +28,10 @@ b {
   font-size: small;
   font-weight: 700;
   color: black;
+  text-decoration: none;
+}
+.metric:hover {
+  color: #50717b;
 }
 .degrees {
   padding-left: 30px;

@@ -13,7 +13,7 @@ function currentCityWeather(responce) {
   let cityName = document.querySelector("#city");
   cityName.innerHTML = `${city}`;
   //current weather
-  celcius = responce.data.main.temp;
+  let celcius = responce.data.main.temp;
   currentTemp = Math.round(celcius);
 
   weather.innerHTML = `${currentTemp}`;
@@ -60,6 +60,10 @@ function changeToFahrenheit(event) {
   let fahrenheitConvert = currentTemp * (9 / 5) + 32;
   weather.innerHTML = `${Math.round(fahrenheitConvert)}`;
 }
+function changeToCelsius(event) {
+  event.preventDefault();
+  weather.innerHTML = `${currentTemp}`;
+}
 
 let form = document.querySelector("#search-city");
 form.addEventListener("submit", handleSubmit);
@@ -67,6 +71,8 @@ form.addEventListener("submit", handleSubmit);
 let fahrenheit = document.querySelector("#fahrenheit");
 
 fahrenheit.addEventListener("click", changeToFahrenheit);
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", changeToCelsius);
 navigator.geolocation.getCurrentPosition(retrievePosition);
 
 let currentTemp = null;
