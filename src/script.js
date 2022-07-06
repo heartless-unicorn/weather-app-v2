@@ -9,28 +9,51 @@ function retrievePosition(position) {
 
 //currentcity function
 function currentCityWeather(responce) {
+  let apiKey = "4bef2345e330426bc02f380640dec5ea";
+  let latitude = responce.data.coord.lat;
+  let longitude = responce.data.coord.lon;
+  let apiLink = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+  function Forecast(responce) {
+    let forecast = document.querySelector("#forecast");
+
+    let currentForecast = `<div class="row" >`;
+    let days = responce.data.daily;
+    days.forEach(function (day) {
+      currentForecast =
+        currentForecast +
+        `<div class="col-2">
+      <p>FR</p>
+      <img src="" class="weather-icon" id="icon" />
+       <span id="current-temp">1</span>
+            <a class="metric" id="celsius">°C </a>`;
+    });
+    currentForecast = currentForecast + ` </div> `;
+    forecast.innerHTML = currentForecast;
+  }
+  axios.get(apiLink).then(Forecast);
   let city = responce.data.name;
-  let cityName = document.querySelector("#city");
-  cityName.innerHTML = `${city}`;
-  //current weather
   let celcius = responce.data.main.temp;
   currentTemp = Math.round(celcius);
-
-  weather.innerHTML = `${currentTemp}`;
   let currentHumidity = responce.data.main.humidity;
-  let humidity = document.querySelector("#humidity");
-  humidity.innerHTML = `Humidity: ${currentHumidity}%`;
   let currentDescription = responce.data.weather[0].main;
-  let description = document.querySelector("#description");
-  description.innerHTML = `<b>${currentDescription}<b>`;
   let currentIcon = responce.data.weather[0].icon;
+  let currentWind = responce.data.wind.speed;
+
+  let cityName = document.querySelector("#city");
+  let humidity = document.querySelector("#humidity");
+  let description = document.querySelector("#description");
   let icon = document.querySelector("#icon");
+  let wind = document.querySelector("#wind");
+
+  cityName.innerHTML = `${city}`;
+  weather.innerHTML = `${currentTemp}`;
+  humidity.innerHTML = `Humidity: ${currentHumidity}%`;
+  description.innerHTML = `<b>${currentDescription}<b>`;
   icon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${currentIcon}.png`
   );
-  let currentWind = responce.data.wind.speed;
-  let wind = document.querySelector("#wind");
   wind.innerHTML = `Wind: ${currentWind} km/h`;
   //current Country function
   function currentCountry(responce) {
@@ -68,6 +91,7 @@ function changeToCurrent(event) {
   event.preventDefault();
   axios.get(weatherURL).then(currentCityWeather);
 }
+
 let weather = document.querySelector("#current-temp");
 let form = document.querySelector("#search-city");
 form.addEventListener("submit", handleSubmit);
@@ -85,6 +109,7 @@ let currentTemp = null;
 let weatherURL = null;
 
 navigator.geolocation.getCurrentPosition(retrievePosition);
+
 // Current date
 let date = new Date();
 let time = document.querySelector("#time");
