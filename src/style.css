@@ -25,14 +25,12 @@ b {
   align-items: flex-start;
 }
 .metric {
-  font-size: small;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 300;
   color: black;
   text-decoration: none;
 }
-.metric:hover {
-  color: #50717b;
-}
+
 .degrees {
   padding-left: 30px;
   color: #50717b;
@@ -53,4 +51,12 @@ b {
 }
 .git-link:hover {
   color: lightpink;
+}
+.forecast-day {
+  color: #50717b;
+  text-decoration: underline;
+  font-weight: bold;
+}
+.forecast-weather-icon {
+  width: 40px;
 }
